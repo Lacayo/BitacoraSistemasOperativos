@@ -1,5 +1,6 @@
 <h1 align="center"> Bitacora Sistemas Operativos </h1>
 ## Bitácora de Comandos del Curso de Sistemas Operativos
+
 sudo apt install openssh -server
 pstree
 clear
