@@ -2,7 +2,9 @@
 ## Bitácora de Comandos del Curso de Sistemas Operativos
 
 sudo apt install openssh -server
+
 pstree
+
 clear
 ps -aux
 top
