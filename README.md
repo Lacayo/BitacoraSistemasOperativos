@@ -43,11 +43,23 @@ Por ejemplo, para los sistemas basados en Debian se utiliza `apt`, para Arch Lin
 
 Cada uno tiene sus propias particularidades y comandos específicos. Para el caso específico de Ubuntu tenemos las siguientes opciones:
 
-Para el gestor de paquetes `apt` en Ubuntu podemos utilizar la version `apt` o `apt-get` que es más antigua, aunque ambas cumplen el mismo propósito.
+Para el gestor de paquetes `apt` en Ubuntu podemos utilizar la version `apt` o `apt-get`. Aunque ambos comandos cumplent el mismo propósito, `apt` por lo general el más amigable con el usuario.
 
-`apt install nombre-paquete`: 
+- `apt install nombre-paquete`: Instala el paquete que le indiquemos en `nombre-paquete`
+  - `apt install nombre-paquete -y`: El parámetro `-y` le indica a la línea de comandos que responda "yes" a cualquier confirmación requerida en la instalación
+  
+- `apt update`: Actualiza la información más reciente de los paquetes que tenemos instalados descargándola de internet. Este comando debe utilizarse siempre antes de `apt upgrade`
 
-sudo add-apt-repository ppa:numix/ppa -y
+- `apt upgrade`: Instala las versiones más recientes de los paquetes instalados. En el caso de `apt-get` no instala las dependencias necesarias, mientras `apt` sí.
+
+- `apt search palabra-clave`: Busca paquetes cuyo nombre o funcionalidad coincidan con `palabra-clave`. También se puede usar `apt-cache search palabra-clave`, aunque puede brindar resultados menos precisos.
+
+- `add-apt-repository nombre-repositorio`: Incluye en la lista de paquetes disponibles los contenidos en el repositorio digitado. Esto nos permite instalar paquetes que no estén almacenados en el repositorio por defecto de `apt`.
+  - `sudo add-apt-repository nombre-repositorio -y`: El parámetro `-y` le indica a la línea de comandos que responda "yes" a cualquier confirmación requerida en la instalación
+  
+- `apt remove`: Desinstala un paquete.
+
+- `apt autoremove`: Desinstala los paquetes que fueron instalados como dependencias de otros paquetes y ya no son necesarios.
 
 # Navegación de carpetas por Comandos
 
@@ -57,7 +69,7 @@ ls
 
 pwd
 
-## Manejo de archivos
+# Manejo de archivos
 
 cp
 
@@ -69,7 +81,7 @@ chown
 
 chmod
 
-## Utilidades básicas
+# Utilidades básicas
 
 pstree
 
@@ -97,7 +109,7 @@ bash
 
 tar
 
-## Lectura de archivos
+# Lectura de archivos
 
 cat
 
@@ -107,7 +119,7 @@ tail
 
 more
 
-## Redes
+# Redes
 
 ip addr
 
