@@ -48,6 +48,7 @@ Aunque ambos comandos cumplent el mismo propósito, `apt` por lo general el más
 
 - `apt install nombre-paquete`: Instala el paquete que le indiquemos en `nombre-paquete`
   - `apt install nombre-paquete -y`: El parámetro `-y` le indica a la línea de comandos que responda "yes" a cualquier confirmación requerida en la instalación
+  - `apt install ruta`: En lugar de descargar el paquete de internet, utiliza el archivo instalador ubicado en la ruta especificada. Ejemplo: `apt install Downloads/Chrome.deb`
   
 - `apt update`: Actualiza la información más reciente de los paquetes que tenemos instalados descargándola de internet. 
 Este comando debe utilizarse siempre antes de `apt upgrade`
@@ -66,6 +67,8 @@ Esto nos permite instalar paquetes que no estén almacenados en el repositorio p
 - `apt remove`: Desinstala un paquete.
 
 - `apt autoremove`: Desinstala los paquetes que fueron instalados como dependencias de otros paquetes y ya no son necesarios.
+
+- `dpkg`: Ubuntu adicionalmente tiene instalado por defecto el gestor de paquetes de Debian, el cual nos permite manejar a bajo nivel los paquetes instalados en el sistema. Es menos amigable para el usuario que `apt`.
 
 Es importante saber que para usar el comando `apt` son necesarios privilegios de administrador por lo que siempre debe ir después del comando `sudo` o ejecutarse como root.
 
@@ -137,65 +140,63 @@ Si no recibe el parámetro de ruta muestra todos los archivos en la ruta actual.
   - `-R`: Ejecuta los cambios de manera recursiva sobre el contenido del directorio. Ejemplos:
   - `chown -R usuario /var/www`: Le asigna el dueño usuario a la carpeta `/var/www`
   - `chown root /Downloads/restore.sh`: Le asigna a root como dueño del archivo restore.sh en `Downloads`
-
-# Utilidades básicas
-
-pstree
-
-clear
-
-ps -aux
-
-top
-
-htop
-
-whoami
-
-man
-
-passwd
-
-history
-
-clear
-
-kill
-
-bash
-
-tar
-
-# Lectura de archivos
-
-cat
-
-head
-
-tail
-
-more
-
-# Redes
-
-ip addr
-
-telnet
-
-| (pipe)
-
-dpkg -i
-
-file 
-
+  
 du 
-
-stat
 
 df
 
-nmap
+file
 
-ufw
+stat
 
-docker
+# Utilidades básicas
+
+`pstree`
+
+`clear`
+
+`ps -aux`
+
+`top`
+
+`htop`
+
+`whoami`
+
+`man`
+
+`passwd`
+
+`history`
+
+`kill`
+
+`bash`
+
+`tar`
+
+# Lectura de archivos
+
+`cat`
+
+`head`
+
+`tail`
+
+`more`
+
+# Redes
+
+`ip addr`
+
+`telnet`
+
+`| (pipe)`
+
+`nmap`
+
+`ufw`
+
+# Docker
+
+`docker`
