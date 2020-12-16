@@ -103,6 +103,8 @@ Si no recibe el parámetro de ruta muestra todos los archivos en la ruta actual.
 
 # Manejo de archivos
 
+A continuación se listan algunos comandos para el manejo de archivos en Linux:
+
 - `cp ruta-original ruta-copia`: Copia el archivo o directorio que se encuentra en la ruta (relativa o absoluta) del parámetro `ruta-original` en la ubicación del parámetro `ruta-copia`. Ejemplo:
   - `cp Documents/Ejercicios.tar Documents/Universidad/Ejercicios-bk.tar`: Copia el comprimido de la carpeta Documentos a una sub-carpeta dentro de documentos con el nombre Ejercicios-bk.tar
 
@@ -141,62 +143,91 @@ Si no recibe el parámetro de ruta muestra todos los archivos en la ruta actual.
   - `chown -R usuario /var/www`: Le asigna el dueño usuario a la carpeta `/var/www`
   - `chown root /Downloads/restore.sh`: Le asigna a root como dueño del archivo restore.sh en `Downloads`
   
-du 
+- `du archivo`: Muestra el tamaño del archivo o directorio en la ruta del parámetro `archivo`
+  - `-h`: Muestra el tamaño en un formato entendible para el ser humano
+  - `--time`: Muestra la última fecha de modificación. Ejemplo:
+  - `du -h --time Downloads/Pelicula.mp4`: Muestra el tamaño y la última fecha de modificación del archivo Pelicula.mp4 en la carpeta Downloads.
 
-df
+- `df archivo`: Muestra el espacio disponible en el sistema de archivos especificado en el parámetro `archivo`. Si no se agrega el parámetro, se muestran todos los sistemas de archivos disponibles.
+  - `-h`: Muestra el espacio disponible en un formato entendible para el ser humano. Ejemplo:
+  - `df -h /dev/sda1`: Muestra el espacio disponible en la partición sda1 en formato humano
+  
+- `file ruta`: Imprime el tipo del archivo o directorio ubicado en el parámetro `ruta`. Ejemplo:
+  - `file Documents/PaginaEmpresa/index.html`: Muestra el tipo de archivo del index.html de la ubicación especificada
 
-file
-
-stat
+- `stat ruta`: Imprime la información de un archivo como sus permisos, tamaño y fecha de modificación en la ubicación del parámetro `ruta`. Ejemplo:
+  - `stat /home/Usuario/Videos/Boda.mp4`
+  
+- `tar`: Este comando nos permite comprimir y descomprimir carpetas a partir de diferentes argumentos:
+  - `-c`: Comprimir archivos
+  - `-x`: Descomprimir archivos
+  - `-f`: Toma de argumento el nombre o ruta del archivo resultante de la compresión o fuente para descomprimir
+  - `-v`: Imprime el proceso detallado
+  - `-z`: Brinda una mejor compresión en formato .gz
+  - Ejemplos:
+    - `tar -cvf Recuerdos.tar /home/Usuario/Pictures`: Toma la carpeta de fotos del usuario y la comprime en un archivo llamado Recuerdos.tar con la impresión del proceso completo
+    - `tar -czf Pagina.tar.gz /home/Documents/PaginaEmpresa`: Comprime la carpeta de PaginaEmpresa en un archivo .tar.gz sin imprimir el proceso
+    - `tar -xvf Instaladores.tar`: Descomprime el archivo Instaladores.tar en la carpeta actual imprimiendo los pasos ejecutados
 
 # Utilidades básicas
 
-`pstree`
+Estas son algunas utilidades básicas de uso diario en Linux:
 
-`clear`
+- `pstree`: 
 
-`ps -aux`
+- `clear`: 
 
-`top`
+- `ps -aux`
 
-`htop`
+- `top`: 
 
-`whoami`
+- `htop`: 
 
-`man`
+- `whoami`: 
 
-`passwd`
+- `man`: 
 
-`history`
+- `passwd`: 
 
-`kill`
+- `history`: 
 
-`bash`
+- `kill`: 
 
-`tar`
+- `bash`: 
 
 # Lectura de archivos
 
-`cat`
+Los siguientes comandos se utilizan para leer de diferentes formas archivos planos de texto:
 
-`head`
+- `cat`
 
-`tail`
+- `head`
 
-`more`
+- `tail`
+
+- `more`
 
 # Redes
+
+Estos comandos están relacionados al manejo de redes del sistema operativo:
 
 `ip addr`
 
 `telnet`
 
-`| (pipe)`
-
 `nmap`
 
 `ufw`
 
+# Pipes
+
+Linux nos permite enviar la salida de un comando como entrada de otro a través de los pipes de la siguiente manera:
+
+`| (pipe)`
+
 # Docker
+
+Docker es una herramienta de virtualización con la que podremos virtualizar sistemas operativos para un amplio rango de usos. Entre sus comandos básicos están:
+
 
 `docker`
