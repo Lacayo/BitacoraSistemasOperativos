@@ -11,33 +11,41 @@ A continuación se listará la bitácora de comandos vistos en el curso clasific
 
 # Ejecutar como superusuario
 
-Para la ejecución de comandos que requieran privilegios de superusuario se requiere del comando 'sudo'
+Para la ejecución de comandos que requieran privilegios de superusuario se requiere del comando `sudo`
 
 Este se coloca antes de otros comandos para modificar el modo en que se ejecutan, indicandole que se poseen permisos para proceder.
 
 Por ejemplo, para ver el estado del firewall en Ubuntu usamos el comando:
 
-'ufw status'
+`ufw status`
 
 Sin embargo, al hacerlo así nos dará error porque requiere que seamos root para ejecutarlo. Al agregarle 'sudo' al inicio de la siguiente manera:
 
-'sudo ufw status'
+`sudo ufw status`
 
 Primero nos solicitará y nos dejará ejecutará el comando exitosamente.
 
 ## Pasar a modo root
 
-Con el comando 'sudo su' podemos pasar a usar el usuario root con solo digitar la contraseña de nuestro usuario sin necesidad de conocer la contraseña de root.
+Con el comando `sudo su` podemos pasar a usar el usuario root con solo digitar la contraseña de nuestro usuario sin necesidad de conocer la contraseña de root.
 
 Este lo podemos usar con solo digitarlo en la consola:
 
-'sudo su'
+`sudo su`
 
 # Instalación de Programas
 
-'apt'
+Cuando necesitemos instalar algún programa en Linux por línea de comandos lo haremos a través de un gestor de paquetes.
 
-sudo apt install openssh -server
+Existe una variedad de gestores de paquetes con sus propios repositorios de paquetes (programas) que pueden variar de distribución a distribución.
+
+Por ejemplo, para los sistemas basados en Debian se utiliza `apt`, para Arch Linux se usa `pacman` y en Fedora `yum`
+
+Cada uno tiene sus propias particularidades y comandos específicos. Para el caso específico de Ubuntu tenemos las siguientes opciones:
+
+Para el gestor de paquetes `apt` en Ubuntu podemos utilizar la version `apt` o `apt-get` que es más antigua, aunque ambas cumplen el mismo propósito.
+
+`apt install nombre-paquete`: 
 
 sudo add-apt-repository ppa:numix/ppa -y
 
