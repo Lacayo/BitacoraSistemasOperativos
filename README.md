@@ -173,61 +173,96 @@ A continuación se listan algunos comandos para el manejo de archivos en Linux:
 
 Estas son algunas utilidades básicas de uso diario en Linux:
 
-- `pstree`: 
+- `pstree`: Nos muestra los procesos en ejecución con un arbol de dependencias donde se pueden observar a qué programas pertenecen los procesos
 
-- `clear`: 
+- `clear`: Limpia la consola de comandos dejándola en su estado inicial como cuando ejecutamos el primer comando
 
-- `ps -aux`
+- `ps`: Muestra la lista de procesos en ejecución en forma de tabla.
+  - `-a`: Muestra los procesos de todos los usuarios
+  - `-u`: Muestra el usuario dueño del proceso
+  - `-x`: Muestra los procesos que no pertenecen a ningún usuario
+  - Ejemplos: `ps -ax` `ps -ux` `ps -aux`
 
-- `top`: 
+- `top`: Muestra la información de los procesos manejados por el kernel con actualizaciones en vivo.
 
-- `htop`: 
+- `htop`: Realiza la misma función que `top`, pero con una interfaz mejorada que permite el scroll y utiliza las teclas FN para realizar acciones a los procesos visibles.
 
-- `whoami`: 
+- `whoami`: Nos muestra nuestro nombre de usuario
 
-- `man`: 
+- `man comando`: Nos muestra el manual del comando que recibe por argumento. Ejemplo:
+  - `man top`: Muestra el manual del comando `top`
+  - `man tar`: Muestra el manual del comando `tar`
 
-- `passwd`: 
+- `passwd Usuario`: Le cambia la contraseña al usuario que recibe por parámetro
 
-- `history`: 
+- `history`: Nos muestra el historial de comandos ejecutados por nuestro usuario
 
-- `kill`: 
+- `kill id-proceso`: Termina el proceso con el ID ingresado en el parámetro `id-proceso`
 
-- `bash`: 
+- `bash archivo`: Ejecuta el archivo ubicado en la ruta del parámetro `archivo`
+
+- `shutdown`: Apaga el equipo
 
 # Lectura de archivos
 
 Los siguientes comandos se utilizan para leer de diferentes formas archivos planos de texto:
 
-- `cat`
+- `cat archivo`: Muestra el contenido del archivo ubicado en la ruta del parámetro `archivo`
 
-- `head`
+- `head archivo`: Muestra las primeras 10 líneas contenidas en el archivo ubicado en la ruta del parámetro `archivo`
 
-- `tail`
+- `tail archivo`: Muestra las últimas 10 líneas contenidas en archivo ubicado en la ruta del parámetro `archivo`
 
-- `more`
+- `more archivo`: Muestra el contenido del archivo ubicado en la ruta del parámetro `archivo` paginado de manera que no se impriman más líneas de las que caben en nuestra pantalla a la vez. Para mostrar más contenido del archivo es necesario presionar `Enter`, haciendo la lectura de archivos más natural.
 
 # Redes
 
 Estos comandos están relacionados al manejo de redes del sistema operativo:
 
-`ip addr`
+- `ip`: Nos proporciona diferentes opciones para el manejo de dispositivos e interfaces de red.
+  - `addr`: Con esta opción nos muestra la IP asignada a las interfaces de Red conectadas a nuestro sistema.
 
-`telnet`
+- `telnet direccion`: Usa el protocolo TELNET para comunicarse interactivamente con la dirección especificada en el parámetro `direccion`
 
-`nmap`
+- `nmap direccion`: Nos muestra una lista de los puertos abiertos en la dirección especificada con el parámetro `direccion`
 
-`ufw`
+- `ufw`: Controla el Firewall que viene por defecto con Ubuntu
+  - `enable`: Habilita el Firewall
+  - `disable`: Deshabilita el Firewall
+  - `status`: Nos muestra el estado actual del Firewall con los puertos permitidos para el tráfico
+  - `allow 'App'`: Permite la regla que se especifique en el parámetro `App`
 
 # Pipes
 
-Linux nos permite enviar la salida de un comando como entrada de otro a través de los pipes de la siguiente manera:
+Linux nos permite enviar la salida de un comando como entrada de otro a través de los pipes `|`.
+Para realizar esto solo necesitamos encadenar los comandos con el símbolo `|` de la siguiente manera
 
-`| (pipe)`
+`comando1 | comando2`
 
-# Docker
+Un ejemplo del uso de los pipes es el siguiente:
 
-Docker es una herramienta de virtualización con la que podremos virtualizar sistemas operativos para un amplio rango de usos. Entre sus comandos básicos están:
+`cat /etc/login.log | tee /home/Usuario/Documents/Historial.txt`
 
+Esta sentencia se encargará de leer el archivo login.log en la carpeta `/etc/` y utilizar el resultado como entrada del comando `tee`
+que se encargará de escribirlo en el archivo Historial.txt en `Documents`
 
-`docker`
+# Docker :whale:
+
+Docker es una herramienta de virtualización con la que podremos ejecutar otras instancias de sistemas operativos en nuestro sistema.
+
+Para su uso tenemos el comando `docker` que nos brinda las siguientes opciones:
+
+- `run imagen`: Ejecuta una instancia de la imagen ingresada en el parámetro `imagen`
+  - `-it`:  Ejecuta la imagen de manera interactiva, lo que nos permite ingresar a la consola de la misma cuando se inicia.
+- `pull imagen`: Descarga la imagen especificada en el parámetro `imagen`, ya sea desde un repositorio con su nombre o de las imágenes disponibles por defecto.
+- `images`: Muestra la lista de imágenes descargadas
+- `ps`: Muestra la lista de instancias o contenedores activos actualmente.
+  - `-a`: Muestra todos los contenedores, incluso los que no están corriendo al momento.
+- `start id-container`: Inicia el container que tiene el ID del parámetro `id-container`
+- `attach id-container`: Ingresa a la línea de comandos del contenedor con el ID del parámetro `id-container`
+- `login`: Solicita usuario y contraseña para iniciar sesión en DockerHub
+  - `-u`: Especifica el usuario con el que se va a iniciar sesión. Ejemplo: `docker login -u anonguy`
+- `commit -m "Descripcion" -a "autor" id-container repositorio/etiqueta`: 
+Guarda el container de nuestro equipo con el ID `id-container` como una imagen nueva con el nombre del parámetro `repositorio/etiqueta`
+Adicionalmente le agrega una descripción con el argumento `-m` y el nombre del autor con `-a`
+- `push nombre-imagen`: Publica la imagen con el nombre `nombre-imagen` en DockerHub. Esto hará que esté disponible para el resto de usuarios que deseen descargarla.
