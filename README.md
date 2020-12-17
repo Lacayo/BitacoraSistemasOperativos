@@ -1,7 +1,7 @@
 <h1 align="center"> Bitacora Sistemas Operativos </h1>
 
-## Bitácora de Comandos del Curso de Sistemas Operativos
-Universidad Latinoamericana de Ciencia y Tecnologia ULACIT 2020
+## Bitácora de Comandos del Curso de Sistemas Operativos 
+Universidad Latinoamericana de Ciencia y Tecnologia ULACIT 2020 :mortar_board:
 
 III Cuatrimestre
 
@@ -9,7 +9,7 @@ Grupo de Sábados 11:00 am
 
 A continuación se listará la bitácora de comandos vistos en el curso clasificados por categorías
 
-# Ejecutar como superusuario
+# Ejecutar como superusuario :zap:
 
 Para la ejecución de comandos que requieran privilegios de superusuario se requiere del comando `sudo`
 
@@ -33,7 +33,7 @@ Este lo podemos usar con solo digitarlo en la consola:
 
 `sudo su`
 
-# Instalación de Programas
+# Instalación de Programas :wrench:
 
 Cuando necesitemos instalar algún programa en Linux por línea de comandos lo haremos a través de un gestor de paquetes.
 
@@ -72,7 +72,7 @@ Esto nos permite instalar paquetes que no estén almacenados en el repositorio p
 
 Es importante saber que para usar el comando `apt` son necesarios privilegios de administrador por lo que siempre debe ir después del comando `sudo` o ejecutarse como root.
 
-# Navegación de carpetas por Comandos
+# Navegación de carpetas por Comandos :file_folder:
 
 Para la navegación por carpetas en la línea de comandos se utilizan los siguientes comandos:
 
@@ -101,7 +101,7 @@ Si no recibe el parámetro de ruta muestra todos los archivos en la ruta actual.
 
 - `pwd`: Nos muestra la ruta en la que nos encontramos actualmente
 
-# Manejo de archivos
+# Manejo de archivos :floppy_disk:
 
 A continuación se listan algunos comandos para el manejo de archivos en Linux:
 
@@ -169,7 +169,7 @@ A continuación se listan algunos comandos para el manejo de archivos en Linux:
     - `tar -czf Pagina.tar.gz /home/Documents/PaginaEmpresa`: Comprime la carpeta de PaginaEmpresa en un archivo .tar.gz sin imprimir el proceso
     - `tar -xvf Instaladores.tar`: Descomprime el archivo Instaladores.tar en la carpeta actual imprimiendo los pasos ejecutados
 
-# Utilidades básicas
+# Utilidades básicas :computer:
 
 Estas son algunas utilidades básicas de uso diario en Linux:
 
@@ -201,9 +201,14 @@ Estas son algunas utilidades básicas de uso diario en Linux:
 
 - `bash archivo`: Ejecuta el archivo ubicado en la ruta del parámetro `archivo`
 
-- `shutdown`: Apaga el equipo
+- `shutdown`: Apaga el equipo. Sin argumentos apaga el sistema después de 1 minuto.
+  - `now`: Apaga el sistema inmediatamente.
+  - `-r`: Reinicia el equipo.
+  
+- `free`: Muestra el espacio disponible de memoria RAM.
+  - `-h`: Muestra los números en formato entendible por el humano.
 
-# Lectura de archivos
+# Lectura de archivos :mag_right:
 
 Los siguientes comandos se utilizan para leer de diferentes formas archivos planos de texto:
 
@@ -215,7 +220,7 @@ Los siguientes comandos se utilizan para leer de diferentes formas archivos plan
 
 - `more archivo`: Muestra el contenido del archivo ubicado en la ruta del parámetro `archivo` paginado de manera que no se impriman más líneas de las que caben en nuestra pantalla a la vez. Para mostrar más contenido del archivo es necesario presionar `Enter`, haciendo la lectura de archivos más natural.
 
-# Redes
+# Redes :satellite:
 
 Estos comandos están relacionados al manejo de redes del sistema operativo:
 
@@ -232,7 +237,7 @@ Estos comandos están relacionados al manejo de redes del sistema operativo:
   - `status`: Nos muestra el estado actual del Firewall con los puertos permitidos para el tráfico
   - `allow 'App'`: Permite la regla que se especifique en el parámetro `App`
 
-# Pipes
+# Pipes :nut_and_bolt:
 
 Linux nos permite enviar la salida de un comando como entrada de otro a través de los pipes `|`.
 Para realizar esto solo necesitamos encadenar los comandos con el símbolo `|` de la siguiente manera
